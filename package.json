@@ -1,0 +1,26 @@
+{
+  "name": "ct-git-commit-msg-std",
+  "version": "0.0.5",
+  "description": "Check if git commit messages meet Class Tools Develop Team's standard.",
+  "main": "check.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/class-tools/ct-git-commit-msg-std.git"
+  },
+  "keywords": [
+    "npm",
+    "commit",
+    "message",
+    "git",
+    "github-action"
+  ],
+  "author": "ForkΨKILLET <fork_killet@qq.com> ren-yc <ldfx_ryc@163.com>",
+  "license": "MIT",
+  "dependencies": {
+    "minimist": "^1.2.6"
+  },
+  "bugs": {
+    "url": "https://github.com/class-tools/ct-git-commit-msg-std/issues"
+  },
+  "homepage": "https://github.com/class-tools/ct-git-commit-msg-std#readme"
+}
