@@ -1,6 +1,6 @@
 {
   "name": "ct-git-commit-msg-std",
-  "version": "0.0.6-alpha.1",
+  "version": "0.0.6",
   "description": "Check if git commit messages meet Class Tools Develop Team's standard.",
   "main": "check.js",
   "repository": {

@@ -13,10 +13,10 @@
 `VER` | `\<version>` | 版本号 | `VER 1.1.4-alpha.4` | 描述该提交的版本（**可包含先行版本号**）。
 `MRG` | `#\<commit id>` | 提交 ID 前六位 | `MRG #514abc` | 表明该提交是一次合并。
 `ISS` | `#\<issue id>` | Issue ID | `ISS #9` | 该提交关闭一个 Issue。
-`UPD` | `\<date>` | 日期 | `UPD 2022040101` | 表面该提交是一次**网站类存储库**的内容更新。
+`UPD` | `\<date>` | 日期 | `UPD 1919810001` | 表面该提交是一次**网站类存储库**的内容更新。
 `SUM` | `\<summery>` | 概要 | `SUM Add feature: Quit on exception` | 描述该版本的主要更新
 
-版本号 `-` 后的格式遵循 [SemVer 规范 - 先行版本号](https://semver.org/lang/zh-CN/)。
+版本号 `-` 后的格式应为 `${alpha/beta/patch/rc}.x`，其中 x 是正整数。
 
 日期格式为 `YYYYMMDDTT`，`YYYY` 是年份，`MM` 是月份，`DD` 是日期，`TT` 是当日提交的次数，不满位数则补零。
 
