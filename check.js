@@ -45,20 +45,19 @@ const S = {
 const C = {
 	none() {},
 	lnBrk(_) {
-		if (S.lnh !== "" && ! _) throw "should be empty"
-		else S.lnc()
+		if (S.lnh !== "" && !_) throw "should be empty"
+		else !S.lnh && S.lnc()
 	},
 	space(n = 1) {
 		if (n === "auto") {
 			const l = S.lnh.length
 			S.lnh = S.lnh.replace(/^ */, "")
-
 			return l - S.lnh.length
 		}
 		else if (S.chc(n) !== " ".repeat(n)) throw `should be ${n} space(s)`
 	},
 	url() {
-		if (! S.lnc().match(/^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/))
+		if (!S.lnc().match(/^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/))
 			throw "should be a URL with http or https protocol"
 	},
 	root() {
@@ -73,12 +72,10 @@ const C = {
 	},
 	header() {
 		S.tk(S.lnc())
-
 		let desc = false
 		while (S.tks.length)
 			if (S.T({ n: "descSym", d: "descriptor symbol in the header" }) !== false) desc = true
-
-		if (! desc) throw "should have at least one descriptor symbol"
+		if (!desc) throw "should have at least one descriptor symbol"
 	},
 	descSym() {
 		const N = {
@@ -91,14 +88,14 @@ const C = {
 		return N ? S.T(N) : false
 	},
 	sharpId() {
-		if (! S.tkc()?.match(/^#\d+$/)) throw "should be '#' followed by a number"
+		if (!S.tkc()?.match(/^#\d+$/)) throw "should be '#' followed by a number"
 	},
 	ver() {
-		if (! S.tkc()?.match(/^(([0-9]|([1-9]([0-9]*))).){2}([0-9]|([1-9]([0-9]*)))([-](([0-9A-Za-z]|([1-9A-Za-z]([0-9A-Za-z]*)))[.]){0,}([0-9A-Za-z]|([1-9A-Za-z]([0-9A-Za-z]*)))){0,1}([+](([0-9A-Za-z]{1,})[.]){0,}([0-9A-Za-z]{1,})){0,1}$/))
+		if (!S.tkc()?.match(/^(([0-9]|([1-9]([0-9]*))).){2}([0-9]|([1-9]([0-9]*)))([-](([0-9A-Za-z]|([1-9A-Za-z]([0-9A-Za-z]*)))[.]){0,}([0-9A-Za-z]|([1-9A-Za-z]([0-9A-Za-z]*)))){0,1}([+](([0-9A-Za-z]{1,})[.]){0,}([0-9A-Za-z]{1,})){0,1}$/))
 			throw "should be a SemVer"
 	},
 	upd() {
-		if (! S.tkc()?.match(/^(0|[1-9][0-9]*)(0|[1-9][0-9]*)(0|[1-9][0-9]*)(0|[1-9][0-9]*)(0|[1-9][0-9]*)(0|[1-9][0-9]*)(0|[1-9][0-9]*)(0|[1-9][0-9]*)(0|[1-9][0-9]*)(0|[1-9][0-9]*)$/))
+		if (!S.tkc()?.match(/^(0|[1-9][0-9]*)(0|[1-9][0-9]*)(0|[1-9][0-9]*)(0|[1-9][0-9]*)(0|[1-9][0-9]*)(0|[1-9][0-9]*)(0|[1-9][0-9]*)(0|[1-9][0-9]*)(0|[1-9][0-9]*)(0|[1-9][0-9]*)$/))
 			throw "should be a date"
 	},
 	body() {
@@ -134,11 +131,11 @@ const C = {
 		}
 	},
 	itemOp() {
-		if (! S.itemOp.includes(S.chc())) throw `should be an operation in [${ S.itemOp.join(", ") }]`
+		if (!S.itemOp.includes(S.chc())) throw `should be an operation in [${ S.itemOp.join(", ") }]`
 	},
 	itemTy() {
 		const c = S.chc()
-		if (! S.itemTy.includes(c)) throw `should be an type in [${ S.itemTy.join(", ") }]`
+		if (!S.itemTy.includes(c)) throw `should be an type in [${ S.itemTy.join(", ") }]`
 	},
 	info() {
 		const c = S.T({ n: "infoTy", d: "type of inforamtion" })
@@ -154,7 +151,7 @@ const C = {
 	},
 	infoTy() {
 		const c = S.chc()
-		if (! S.infoTy.includes(c)) throw `should be an type in [${ S.infoTy.join(", ") }]`
+		if (!S.infoTy.includes(c)) throw `should be an type in [${ S.infoTy.join(", ") }]`
 		return c
 	}
 }
