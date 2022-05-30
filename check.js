@@ -58,7 +58,7 @@ const C = {
 	},
 	url() {
 		if (!S.lnc().match(/^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/))
-			throw "should be a URL with http or https protocol"
+			throw "should be a URL with http or https protocol without any symbols"
 	},
 	root() {
 		if (S.debug) {
